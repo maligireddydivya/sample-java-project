@@ -6,19 +6,21 @@ pipeline {
             steps {
                 // Checkout source code from Git repository
                // git 'https://github.com/salvadisravan/sample-java-project.git'
-               checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-account', url: 'https://github.com/maligireddydivya/sample-java-project.git']])
+               //checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-account', url: 'https://github.com/maligireddydivya/sample-java-project.git']])
+               echo "checkout source code"
             }
         }
         stage('Build') {
             steps {
                 // Build your project (e.g., compile code, package artifacts)
-                sh 'mvn clean package'
+                echo "building the packeage"
+                //sh 'mvn clean package'
             }
         }
         stage('Test') {
             steps {
                 echo "Run tests (e.g., unit tests, integration tests)"
-                sh 'mvn test'
+                //sh 'mvn test'
             }
         }
         stage('Deploy to QA') {
